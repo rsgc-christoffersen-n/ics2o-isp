@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var PlayersCard: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,9 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+        
+        // Set the text
+        PlayersCard.text = String(arc4random_uniform(13))
     }
 
     override var shouldAutorotate: Bool {
