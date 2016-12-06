@@ -33,8 +33,6 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
         
-        // Set the text
-        PlayersCard.text = String(arc4random_uniform(13))
     }
 
     override var shouldAutorotate: Bool {
