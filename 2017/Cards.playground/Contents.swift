@@ -196,12 +196,13 @@ while playerHand.count > 0 && playerHand.count < 52 {
         computerHand.remove(at: computerCardPosition)
         
     } else {
-         //removing the card the was already compair (and caused a war)
+        
+        //removing the card the was already compair (and caused a war)
         var playerWarHand : [Card] = [currentPlayerCard]
         var computerWarHand : [Card] = [currentComputerCard]
         playerHand.remove(at: 0)
         computerHand.remove(at: 0)
-
+        
         // do both players have at least more then 0 cards so that they can play a war
         if playerHand.count == 0 {
             //player loses
@@ -217,24 +218,24 @@ while playerHand.count > 0 && playerHand.count < 52 {
             //its war
             
             // building players war hand
-            while playerWarHand.count < 4 || playerHand.count==0 {
+            while playerWarHand.count < 4 || playerHand.count==1 {
                 playerWarHand.append(playerHand[0])
                 playerHand.remove(at: 0)
                 
             }
             //building computers war hand
-            while computerWarHand.count < 4 || computerHand.count==0 {
+            while computerWarHand.count < 4 || computerHand.count==1 {
                 computerWarHand.append(computerHand[0])
                 computerHand.remove(at: 0)
                 
-
+                
             }
             print("=====================================")
             print("All cards in the player's war hand are...")
             for (value, card) in playerWarHand.enumerated() {
                 print("Card \(value) in player's war hand is a suit of \(Suit.glyph(forHashValue: card.suit)) and value is \(card.value)")
             }
-
+            
             print("=====================================")
             print("All cards in the Computer's war hand are...")
             for (value, card) in computerWarHand.enumerated() {
@@ -256,53 +257,42 @@ while playerHand.count > 0 && playerHand.count < 52 {
             }
             //Who won this war?
             
-            if computerHand.count == 0  {
-                //compare the last card in the computer War hand with the first card of the player hand
-                print("CPU NO CARDS")
-                break
+            if playerHand[0].value > computerHand[0].value {
+                //Give cards from both war hands to player
+                playerHand.append(contentsOf: playerWarHand)
+                playerHand.append(contentsOf: computerWarHand)
+                playerWarHand = []
+                computerWarHand = []
+                playerHand.append(computerHand[0])
+                playerHand.append(playerHand[0])
+                computerHand.remove(at: 0)
+                playerHand.remove(at: 0)
                 
-            } else if playerHand.count == 0 {
-                //compare the last card in the player War hand with the first card of the computer hand
-                print("PLAYER NO CARDS")
-                break
+            } else if computerHand[0].value > playerHand[0].value {
+                //Give cards from both war hands to computer
+                computerHand.append(contentsOf: playerWarHand)
+                computerHand.append(contentsOf: computerWarHand)
+                playerWarHand = []
+                computerWarHand = []
+                computerHand.append(computerHand[0])
+                computerHand.append(playerHand[0])
+                computerHand.remove(at: 0)
+                playerHand.remove(at: 0)
+                
                 
             } else {
-                if playerHand[0].value > computerHand[0].value {
-                    //Give cards from both war hands to player
-                    playerHand.append(contentsOf: playerWarHand)
-                    playerHand.append(contentsOf: computerWarHand)
-                    playerWarHand = []
-                    computerWarHand = []
-                    playerHand.append(computerHand[0])
-                    playerHand.append(playerHand[0])
-                    computerHand.remove(at: 0)
-                    playerHand.remove(at: 0)
-                    
-                } else if computerHand[0].value > playerHand[0].value {
-                    //Give cards from both war hands to computer
-                    computerHand.append(contentsOf: playerWarHand)
-                    computerHand.append(contentsOf: computerWarHand)
-                    playerWarHand = []
-                    computerWarHand = []
-                    computerHand.append(computerHand[0])
-                    computerHand.append(playerHand[0])
-                    computerHand.remove(at: 0)
-                    playerHand.remove(at: 0)
-                    
-                    
-                } else {
-                    //It is another war
-                    print("It is time for another war")
-                    break
-                    
-                    
-                    
-                }
-
-            }
+                //It is another war
+                print("It is time for another war")
+                break
                 
+                
+                
+            }
             
-          
+            
+            
+            
+            
         }
         
         
@@ -310,7 +300,7 @@ while playerHand.count > 0 && playerHand.count < 52 {
         
     }
     
-        
+    
     
 }
 
