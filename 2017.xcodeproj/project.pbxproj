@@ -24,6 +24,7 @@
 		3F4503461DE7364500595AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4503491DE7364500595AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F45034B1DE7364500595AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FF04AD21E097BD5005CD1F6 /* Cards.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Cards.playground; path = 2017/Cards.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		3F45032D1DE7364400595AAB = {
 			isa = PBXGroup;
 			children = (
+				3FF04AD21E097BD5005CD1F6 /* Cards.playground */,
 				3F4503381DE7364500595AAB /* 2017 */,
 				3F4503371DE7364500595AAB /* Products */,
 			);
