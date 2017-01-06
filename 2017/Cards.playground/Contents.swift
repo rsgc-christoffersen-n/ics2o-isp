@@ -155,11 +155,10 @@ while playerHand.count > 0 && playerHand.count < 52 {
     } else {
         //If the cards did not win or lose they tied
         
-        //Removing the card that tied, and putting them in war hand
-        var playerWarHand : [Card] = [currentPlayerCard]
-        var computerWarHand : [Card] = [currentComputerCard]
-        playerHand.remove(at: 0)
-        computerHand.remove(at: 0)
+        //Creating War Hands
+        var playerWarHand : [Card] = []
+        var computerWarHand : [Card] = []
+
         
         // Checks to see that both players after removing a card have enough cards to do a war
         if playerHand.count == 0 {
