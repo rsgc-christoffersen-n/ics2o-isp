@@ -158,15 +158,15 @@ while playerHand.count > 0 && playerHand.count < 52 {
         //Creating War Hands
         var playerWarHand : [Card] = []
         var computerWarHand : [Card] = []
-
+    
         
         // Checks to see that both players after removing a card have enough cards to do a war
-        if playerHand.count == 0 {
+        if playerHand.count == 1 {
             //player loses
             print("You don't have enough cards for a war")
             break
             
-        } else if computerHand.count == 0 {
+        } else if computerHand.count == 1 {
             //computer loses
             print("CPU doesn't have enough cards for a war")
             break
